@@ -58,14 +58,8 @@ namespace AirplaneSeating
                         continue;
                     }
 
-                    if (groupKeyToTotalWeightMap.TryGetValue(seatInfo, out var totalWeight))
-                    {
-                        totalWeight += ColumnToWeightMap[column];
-                    }
-                    else
-                    {
-                        totalWeight = ColumnToWeightMap[column];
-                    }
+                    groupKeyToTotalWeightMap.TryGetValue(seatInfo, out var totalWeight);
+                    totalWeight += ColumnToWeightMap[column];
                     groupKeyToTotalWeightMap[seatInfo] = totalWeight;
                 }
             }
